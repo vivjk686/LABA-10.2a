@@ -189,18 +189,16 @@ def generate_report():
     add_image_box(doc, os.path.join(IMG_DIR, "struct.png"), "Рис. 3. Структурна схема програми LABA-10.2a", width_inches=6.2)
     add_p(doc, "Опис архітектури та підпрограм:")
 
-    add_p(doc, '• Головний модуль (LABA-10.2a.cpp): зчитує N, створює масив Student, виводить початкову таблицю та запускає цикл текстового меню (do-while зі switch): [1] Фізичне впорядкування, [2] Індексне впорядкування, [3] Бінарний пошук, [0] Вихід.')
-    add_p(doc, '• Заголовний файл (student2a.h): описує enum Specialnist, структуру Student рівня А та прототипи Create(), Print(), PhysicalSort(), BuildIndexArray(), PrintWithIndex(), BinarySearch().')
-    add_p(doc, '• Файл реалізації (student2a.cpp): реалізує функцію порівняння compareStudents(), бульбашкове фізичне сортування, індексне сортування вставкою та бінарний пошук.')
+    add_p(doc, '• Головний блок main(): зчитує N, виділяє масив Student* p = new Student[N] та організовує циклічне меню [1]–[5], [0].')
+    add_p(doc, '• Create(p, N) та Print(p, N): введення з валідацією діапазонів та вивід 7-колонкової таблиці.')
+    add_p(doc, '• Sort(p, N): фізичне впорядкування бульбашкою (фізика за зростанням, курс за зростанням, прізвище за спаданням).')
+    add_p(doc, '• IndexSort(p, N) та PrintIndexSorted(p, I, N): побудова індексного масиву методом вставки та вивід у впорядкованому вигляді без зміни масиву p.')
+    add_p(doc, '• BinSearch(p, N, prizv, kurs, fizyka): двійковий пошук студента у фізично відсортованому масиві.')
 
     # --- 4. ТЕКСТ ПРОГРАМИ ---
     add_h(doc, "4. Текст програми", level=1)
 
-    add_h(doc, '4.1. Заголовний файл student2a.h', level=2)
-    add_code_block(doc, read_txt(BASE_DIR, 'LABA-10.2a\\student2a.h'))
-    add_h(doc, '4.2. Файл реалізації student2a.cpp', level=2)
-    add_code_block(doc, read_txt(BASE_DIR, 'LABA-10.2a\\student2a.cpp'))
-    add_h(doc, '4.3. Головний файл LABA-10.2a.cpp', level=2)
+    add_h(doc, '4.1. Текст програми LABA-10.2a.cpp', level=2)
     add_code_block(doc, read_txt(BASE_DIR, 'LABA-10.2a\\LABA-10.2a.cpp'))
 
     # --- 5. МОДУЛЬНЕ ТЕСТУВАННЯ ---
